@@ -94,9 +94,9 @@ const ModuleAccordion = ({ modules }) => {
               <p className="text-gray-300 text-sm">{module.stage}</p>
             </div>
             {openModule === index ? (
-              <ChevronUp className="text-accent w-6 h-6" />
+              <ChevronUp className="text-cyan-400 w-6 h-6" />
             ) : (
-              <ChevronDown className="text-accent w-6 h-6" />
+              <ChevronDown className="text-cyan-400 w-6 h-6" />
             )}
           </button>
           <div className={`accordion-content ${openModule === index ? 'open' : ''}`}>
@@ -104,7 +104,7 @@ const ModuleAccordion = ({ modules }) => {
               <ul className="space-y-2">
                 {module.lessons.map((lesson, lessonIndex) => (
                   <li key={lessonIndex} className="flex items-center text-gray-300">
-                    <CheckCircle className="w-4 h-4 text-accent mr-3 flex-shrink-0" />
+                    <CheckCircle className="w-4 h-4 text-cyan-400 mr-3 flex-shrink-0" />
                     {lesson}
                   </li>
                 ))}
@@ -117,7 +117,7 @@ const ModuleAccordion = ({ modules }) => {
   );
 };
 
-// Dados dos módulos
+// Dados dos módulos - ARRAY COMPLETO
 const courseModules = [
   {
     stage: "ESTÁGIO NOOBIE",
@@ -218,6 +218,7 @@ const courseModules = [
   }
 ];
 
+// COMPONENTE PRINCIPAL APP
 function App() {
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -225,7 +226,7 @@ function App() {
       <header className="relative z-10 p-6">
         <div className="container mx-auto">
           <div className="text-center">
-            <h1 className="text-3xl font-bold text-accent">Lion Labs</h1>
+            <h1 className="text-3xl font-bold text-cyan-400">Lion Labs</h1>
           </div>
         </div>
       </header>
@@ -262,12 +263,12 @@ function App() {
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="relative glass-card rounded-2xl p-8 hover-lift">
-              <div className="aspect-video bg-gradient-card rounded-lg flex items-center justify-center mb-6">
-                <button className="w-20 h-20 bg-accent rounded-full flex items-center justify-center hover-glow transition-all duration-300">
+              <div className="aspect-video gradient-card rounded-lg flex items-center justify-center mb-6">
+                <button className="w-20 h-20 bg-cyan-400 rounded-full flex items-center justify-center hover-glow transition-all duration-300">
                   <Play className="w-8 h-8 text-black ml-1" />
                 </button>
               </div>
-              <div className="inline-block bg-accent text-black px-6 py-2 rounded-full font-semibold">
+              <div className="inline-block bg-cyan-400 text-black px-6 py-2 rounded-full font-semibold">
                 Assista Antes de Se Inscrever
               </div>
             </div>
@@ -279,21 +280,21 @@ function App() {
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            O que é <span className="text-accent">Lion Labs</span>?
+            O que é <span className="text-cyan-400">Lion Labs</span>?
           </h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="glass-card p-8 rounded-xl hover-lift text-center">
-              <Brain className="w-12 h-12 text-accent mx-auto mb-4" />
+              <Brain className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">Conhecimento Puro</h3>
               <p className="text-gray-300">Sem enrolação. Direto ao ponto com o que realmente importa.</p>
             </div>
             <div className="glass-card p-8 rounded-xl hover-lift text-center">
-              <Rocket className="w-12 h-12 text-accent mx-auto mb-4" />
+              <Rocket className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">Ferramentas do Futuro</h3>
               <p className="text-gray-300">Acesso a VEO3, Kling, agentes customizados e muito mais.</p>
             </div>
             <div className="glass-card p-8 rounded-xl hover-lift text-center">
-              <Target className="w-12 h-12 text-accent mx-auto mb-4" />
+              <Target className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-4">Resultados Reais</h3>
               <p className="text-gray-300">Você sai pronto para aplicar IA no mundo real.</p>
             </div>
@@ -305,7 +306,7 @@ function App() {
       <AnimatedSection className="py-20 gradient-section">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            A Jornada - Do <span className="text-accent">Noobie</span> ao <span className="text-accent">Highlander</span>
+            A Jornada - Do <span className="text-cyan-400">Noobie</span> ao <span className="text-cyan-400">Highlander</span>
           </h2>
           <div className="max-w-4xl mx-auto">
             <div className="relative">
@@ -320,7 +321,7 @@ function App() {
                   <div className="flex-1 text-right pr-8">
                     {index % 2 === 0 && (
                       <div className="glass-card p-6 rounded-lg">
-                        <h3 className="text-2xl font-bold text-accent mb-2">{item.stage}</h3>
+                        <h3 className="text-2xl font-bold text-cyan-400 mb-2">{item.stage}</h3>
                         <p className="text-gray-300">{item.description}</p>
                       </div>
                     )}
@@ -331,7 +332,7 @@ function App() {
                   <div className="flex-1 pl-8">
                     {index % 2 === 1 && (
                       <div className="glass-card p-6 rounded-lg">
-                        <h3 className="text-2xl font-bold text-accent mb-2">{item.stage}</h3>
+                        <h3 className="text-2xl font-bold text-cyan-400 mb-2">{item.stage}</h3>
                         <p className="text-gray-300">{item.description}</p>
                       </div>
                     )}
@@ -347,7 +348,7 @@ function App() {
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Destaques do <span className="text-accent">Curso</span>
+            Destaques do <span className="text-cyan-400">Curso</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <div className="glass-card p-8 rounded-xl hover-lift">
@@ -379,7 +380,7 @@ function App() {
       <AnimatedSection className="py-20 gradient-section">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Módulos do <span className="text-accent">Curso</span>
+            Módulos do <span className="text-cyan-400">Curso</span>
           </h2>
           <div className="max-w-4xl mx-auto">
             <ModuleAccordion modules={courseModules} />
@@ -391,7 +392,7 @@ function App() {
       <AnimatedSection className="py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Pronto para <span className="text-accent">Dominar a IA</span>?
+            Pronto para <span className="text-cyan-400">Dominar a IA</span>?
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
             Junte-se a milhares de pessoas que já transformaram suas carreiras e negócios com o poder da Inteligência Artificial.
@@ -409,7 +410,7 @@ function App() {
       {/* Footer */}
       <footer className="py-12 border-t border-gray-800">
         <div className="container mx-auto px-6 text-center">
-          <h3 className="text-2xl font-bold text-accent mb-4">Lion Labs</h3>
+          <h3 className="text-2xl font-bold text-cyan-400 mb-4">Lion Labs</h3>
           <p className="text-gray-400">© 2025 Lion Labs. Todos os direitos reservados.</p>
         </div>
       </footer>
