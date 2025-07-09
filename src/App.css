@@ -1,7 +1,9 @@
 /* Gradientes personalizados */
 .gradient-hero {
-  background: linear-gradient(135deg, #000000 0%, #004aad 50%, #00243f 100%);
+  background: linear-gradient(135deg, #000000 0%, #003a80 50%, #00243f 80%, #000000 100%);
 }
+
+
 
 .gradient-section {
   background: linear-gradient(180deg, #000000 0%, #00243f 100%);

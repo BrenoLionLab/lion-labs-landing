@@ -1,0 +1,48 @@
+## Registro de Trabalho
+
+### 07 de Julho de 2025
+
+- **Início:** Configuração do contexto do projeto `lion-labs-landing-main`.
+- **Plano de Rollback:** Adicionado ao `README.md`.
+- **Implementação:** Seção "Destaques do Curso" em `src/App.jsx` substituída pela animação do robô.
+- **Ajuste:** Espessura e opacidade das linhas de conexão da animação do robô ajustadas para melhor visibilidade.
+- **Ajuste:** Coordenadas das linhas SVG ajustadas para conectar ao centro dos ícones periféricos.
+- **Remoção:** Texto "Agentes Prontos Para Usar Turbinados Com a Tecnologia Zero Prompt™" e parágrafo associado removidos de `src/App.jsx`.
+- **Adição:** Novo texto "APRENDA A CRIAR AGENTES E AUTOMATIZAR SUA VIDA E MELHORAR SUA PERFORMANCE NO SEU NEGOCIO" adicionado em `src/App.jsx`.
+- **Ajuste:** Componente do robô central transformado em um "card 3D" com animações de inclinação.
+- **Ajuste:** Removidas as classes `gradient-section` das seções `AnimatedSection` para permitir um gradiente de fundo contínuo em todo o site.
+- **Ajuste:** Espaçamento entre a logo e o título diminuído, e vídeo aproximado do subtítulo em `src/App.jsx`.
+- **Ajuste:** Título principal da "Hero Section" alterado para "Pare de só consumir IA. Aprenda a criar, automatizar e escalar — do zero ao topo.", o título anterior se tornou o subtítulo, e a frase "Veja este video antes de se inscrever." foi removida do botão na "VSL Section" em `src/App.jsx`.
+- **Adição:** Menu de navegação adicionado ao topo da página em `src/App.jsx`, com logo, itens de navegação e um botão "Preços" estilizado como card.
+- **Ajuste:** Adicionados `id`s às seções correspondentes em `src/App.jsx` para que os links do menu funcionem.
+- **Ajuste:** Menu centralizado, com largura limitada e arredondado. Título principal ajustado para melhor centralização e quebra de linha.
+- **Ajuste:** Largura do menu ajustada para corresponder ao card do vídeo.
+- **Ajuste:** Layout do menu corrigido: logo na ponta esquerda, botão "Preços" na ponta direita, e tamanho da logo revertido para o original.
+- **Ajuste:** Distância do vídeo para o subtítulo diminuída. Adicionado componente "v1.1.3 Lançado" abaixo do menu, pequeno, redondo e centralizado, com animação.
+- **Ajuste:** Componente "v1.1.3 Lançado" movido para o meio da tela e texto alterado para "v1.1.3 Lançado". Logo LIONLAB no menu principal aumentada.
+- **Ajuste:** Padding vertical do menu reduzido para torná-lo mais fino, mantendo a logo maior.
+- **Ajuste:** Menu abaixado do topo da tela e largura reduzida. Espaço entre "v1.1.3 Lançado" e título principal diminuído, e distância do menu também reduzida.
+- **Ajuste:** Espaçamento entre o menu, o componente "v1.1.3 Lançado" e o título principal aumentado um pouco.
+- **Ajuste:** Menu mais fino (padding vertical reduzido) e largura ajustada para corresponder ao componente do vídeo.
+- **Ajuste:** Largura do menu ajustada para `max-w-4xl` para alinhar com o comprimento do componente do vídeo.
+- **Ajuste:** Largura máxima do título principal e do subtítulo ajustada para melhor alinhamento visual das linhas.
+- **Informação:** A fonte atual utilizada no site é "PT Serif".
+- **Ajuste:** Fonte do site alterada para "Inter" (sans-serif) em `src/index.css`.
+- **Ajuste:** Título principal da "Hero Section" ajustado para ter "PARE DE SÓ CONSUMIR IA." na primeira linha.
+- **Ajuste:** Título principal justificado.
+- **Ajuste:** Fonte do título principal aumentada.
+- **Ajuste:** Título principal centralizado.
+- **Ajuste:** Espaçamento entre o componente "v1.1.3 Lançado" e o título principal ajustado para ser igual ao espaçamento entre o menu e o componente "v1.1.3 Lançado".
+- **Ajuste:** Espaçamento entre o menu, o componente "v1.1.3 Lançado", o título principal, o subtítulo e o vídeo aumentado um pouco.
+- **Ajuste:** Menu transparente por dentro e fixo ao rolar a tela.
+- **Ajuste:** Menu agora rola junto com a tela (classes `sticky` e `top-0` removidas).
+- **Ajuste:** Implementado menu sticky com efeito de transparência e blur ao rolar, e ajustado o espaçamento da Hero Section para compensar o menu fixo.
+- **Ajuste:** Largura do menu ajustada para `max-w-4xl` e centralizado. Espaçamento entre o menu, o componente "v1.1.3 Lançado", o título principal, o subtítulo e o vídeo aumentado um pouco mais.
+- **Ajuste:** Menu fixo no topo, com largura `max-w-4xl` e centralizado. Componente "v1.1.3 Lançado" posicionado absolutamente abaixo do menu. `padding-top` adicionado ao `div` principal para compensar o menu fixo. `mt-` e `pt-` removidos da "Hero Section".
+- **Reversão:** Revertido `header` para o estado anterior ao menu sticky.
+- **Reversão:** Revertido `background` da classe `.glass-card` em `src/App.css`.
+- **Reversão:** Revertido `padding-top` do `div` principal em `src/App.jsx`.
+- **Reversão:** Revertido posicionamento do componente "v1.1.3 Lançado" em `src/App.jsx`.
+- **Reversão:** Revertido espaçamento da "Hero Section" em `src/App.jsx`.
+- **Reversão:** Revertido espaçamento do subtítulo e da "VSL Section" em `src/App.jsx`.
+- **Próximo passo:** Aguardando a próxima instrução do usuário.

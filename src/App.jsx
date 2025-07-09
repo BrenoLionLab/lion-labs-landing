@@ -5,7 +5,7 @@ import './App.css';
 
 // Componente de partículas de fundo
 const Particles = () => {
-  const particles = Array.from({ length: 50 }, (_, i) => ({
+  const particles = Array.from({ length: 100 }, (_, i) => ({
     id: i,
     size: Math.random() * 4 + 1,
     x: Math.random() * 100,
@@ -220,46 +220,60 @@ const courseModules = [
 
 // COMPONENTE PRINCIPAL APP
 function App() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen relative gradient-hero text-white overflow-x-hidden">
+      <Particles />
+      <Particles />
       {/* Header */}
-      <header className="relative z-10 p-6">
-        <div className="container mx-auto">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-cyan-400">Lion Labs</h1>
-          </div>
+      <header className="relative z-50 px-4 py-1 glass-card hover-lift mx-auto rounded-full max-w-4xl mt-4">
+        <div className="container mx-auto flex items-center justify-between space-x-8">
+          {/* Logo */}
+          <img src="/LION LAB LOGO (3).png" alt="Lion Labs Logo" className="h-12" />
+          {/* Menu Items */}
+          <nav className="flex space-x-8">
+            <a href="#sobre" className="text-white text-lg font-bold hover:text-cyan-400 transition-colors duration-300">Sobre</a>
+            <a href="#jornada" className="text-white text-lg font-bold hover:text-cyan-400 transition-colors duration-300">Jornada</a>
+            <a href="#destaques" className="text-white text-lg font-bold hover:text-cyan-400 transition-colors duration-300">Destaques</a>
+            <a href="#modulos" className="text-white text-lg font-bold hover:text-cyan-400 transition-colors duration-300">Módulos</a>
+          </nav>
+          {/* Prices */}
+          <a href="#precos" className="glass-card gradient-cta text-white font-bold px-6 py-3 rounded-full animate-pulse-glow hover-lift">Preços</a>
         </div>
       </header>
 
+      {/* Version Tag */}
+      <div className="relative z-10 mx-auto mt-16 glass-card gradient-cta text-white font-bold px-4 py-2 rounded-full animate-pulse-glow hover-lift text-sm w-fit">
+        v1.1.3 Lançado
+      </div>
+
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center gradient-hero">
-        <Particles />
+      <section className="relative flex items-center justify-center mt-16">
         <div className="relative z-10 container mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
-              <TypingAnimation 
-                text="O conhecimento que separa amadores de especialistas em IA."
-                className="text-white"
-              />
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight max-w-4xl mx-auto text-center">
+              Aprendam a criar sistemas automatizado.<br />Aprenda a <span className="text-cyan-400">criar</span>, automatizar e <span className="text-cyan-400">escalar</span> — do zero ao topo.
             </h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3, duration: 1 }}
-              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto"
-            >
-              Do básico ao avançado, evolua de Noobie a Highlander com o método Lion Labs.
-            </motion.p>
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl mx-auto">
+              O único treinamento de IA que te entrega domínio total das ferramentas, automações e agentes, na prática e sem enrolação.
+            </p>
           </motion.div>
         </div>
       </section>
 
       {/* VSL Section */}
-      <AnimatedSection className="py-20 gradient-section">
+      <AnimatedSection className="py-12">
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <div className="relative glass-card rounded-2xl p-8 hover-lift">
@@ -268,16 +282,14 @@ function App() {
                   <Play className="w-8 h-8 text-black ml-1" />
                 </button>
               </div>
-              <div className="inline-block bg-cyan-400 text-black px-6 py-2 rounded-full font-semibold">
-                Assista Antes de Se Inscrever
-              </div>
+              
             </div>
           </div>
         </div>
       </AnimatedSection>
 
       {/* O que é Lion Labs */}
-      <AnimatedSection className="py-20">
+      <AnimatedSection id="sobre" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             O que é <span className="text-cyan-400">Lion Labs</span>?
@@ -303,7 +315,7 @@ function App() {
       </AnimatedSection>
 
       {/* Jornada - Timeline */}
-      <AnimatedSection className="py-20 gradient-section">
+      <AnimatedSection id="jornada" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             A Jornada - Do <span className="text-cyan-400">Noobie</span> ao <span className="text-cyan-400">Highlander</span>
@@ -344,40 +356,298 @@ function App() {
         </div>
       </AnimatedSection>
 
-      {/* Destaques do Curso */}
-      <AnimatedSection className="py-20">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Destaques do <span className="text-cyan-400">Curso</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="glass-card p-8 rounded-xl hover-lift">
-              <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
-                <Play className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">VEO3</h3>
-              <p className="text-gray-300">Crie vídeos realistas e automáticos com IA – o que só os mais avançados do mundo estão fazendo agora.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl hover-lift">
-              <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
-                <Zap className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Agentes & Automações</h3>
-              <p className="text-gray-300">Construa GPTs customizados, crie robôs digitais, escale seu negócio.</p>
-            </div>
-            <div className="glass-card p-8 rounded-xl hover-lift">
-              <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
-                <Shield className="w-8 h-8 text-black" />
-              </div>
-              <h3 className="text-xl font-bold mb-4">Integrações</h3>
-              <p className="text-gray-300">Da web ao seu computador – conecte tudo, automatize tudo.</p>
-            </div>
-          </div>
+      {/* Agentes Conectados - Nova Seção */}
+<AnimatedSection className="py-20">
+  <div className="container mx-auto px-6">
+    
+    
+    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+      APRENDA A CRIAR <span className="text-cyan-400">AGENTES</span> E AUTOMATIZAR SUA VIDA E MELHORAR SUA PERFORMANCE NO SEU <span className="text-cyan-400">NEGOCIO</span>
+    </h2>
+    <p className="text-xl text-gray-300 text-center mb-16 max-w-4xl mx-auto">
+      Com o Lion Labs, você domina as ferramentas para otimizar processos, gerar resultados e escalar seu potencial.
+    </p>
+    
+    {/* Container da Animação */}
+    <div className="relative max-w-6xl mx-auto h-96 flex items-center justify-center">
+      {/* SVG para as linhas */}
+      <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 400">
+        <defs>
+          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#5de0e6" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#3666b2" stopOpacity="1" />
+            <stop offset="100%" stopColor="#5de0e6" stopOpacity="0.3" />
+          </linearGradient>
+        </defs>
+        
+        {/* Linhas conectoras animadas */}
+        <motion.line
+          x1="400" y1="200" x2="117" y2="125"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0
+          }}
+        />
+        
+        <motion.line
+          x1="400" y1="200" x2="683" y2="125"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5
+          }}
+        />
+        
+        <motion.line
+          x1="400" y1="200" x2="67" y2="275"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        
+        <motion.line
+          x1="400" y1="200" x2="733" y2="275"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1.5
+          }}
+        />
+        
+        <motion.line
+          x1="400" y1="200" x2="17" y2="200"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        
+        <motion.line
+          x1="400" y1="200" x2="783" y2="200"
+          stroke="url(#lineGradient)"
+          strokeWidth="4"
+          initial={{ pathLength: 0, opacity: 0.5 }}
+          animate={{ 
+            pathLength: [0, 1, 0],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2.5
+          }}
+        />
+      </svg>
+      
+      {/* Robô Central - Agora um Card 3D */}
+      <motion.div
+        className="relative z-10 w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center shadow-2xl"
+        style={{
+          boxShadow: '0 0 30px rgba(93, 224, 230, 0.5), 0 0 60px rgba(93, 224, 230, 0.3)',
+          transformStyle: 'preserve-3d', // Habilita transformações 3D para os filhos
+          transform: 'rotateX(15deg) rotateY(-15deg) translateZ(20px)', // Inclinação 3D inicial
+        }}
+        animate={{
+          scale: [1, 1.05, 1],
+          rotate: [0, 5, -5, 0],
+          rotateX: [15, 10, 15], // Animação sutil de inclinação
+          rotateY: [-15, -10, -15], // Animação sutil de inclinação
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        <div className="absolute inset-0 bg-black/20 rounded-2xl" style={{ transform: 'translateZ(-10px)' }}></div> {/* Face traseira para profundidade */}
+        <Brain className="w-16 h-16 text-white relative z-20" />
+      </motion.div>
+      
+      {/* Ícones Periféricos */}
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ left: '12.5%', top: '25%' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0
+        }}
+      >
+        <Zap className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ right: '12.5%', top: '25%' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 0.5
+        }}
+      >
+        <Rocket className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ left: '6.25%', bottom: '25%' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        <Target className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ right: '6.25%', bottom: '25%' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1.5
+        }}
+      >
+        <Shield className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ left: '0%', top: '50%', transform: 'translateY(-50%)' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+      >
+        <Users className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+      
+      <motion.div
+        className="absolute w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center border border-cyan-400/30"
+        style={{ right: '0%', top: '50%', transform: 'translateY(-50%)' }}
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.1, 1]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2.5
+        }}
+      >
+        <Award className="w-6 h-6 text-cyan-400" />
+      </motion.div>
+    </div>
+  </div>
+</AnimatedSection>
+
+{/* Destaques do Curso - Seção Original */}
+<AnimatedSection id="destaques" className="py-20">
+  <div className="container mx-auto px-6">
+    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+      Destaques do <span className="text-cyan-400">Curso</span>
+    </h2>
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="glass-card p-8 rounded-xl hover-lift">
+        <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
+          <Play className="w-8 h-8 text-black" />
         </div>
-      </AnimatedSection>
+        <h3 className="text-xl font-bold mb-4">VEO3</h3>
+        <p className="text-gray-300">Crie vídeos realistas e automáticos com IA – o que só os mais avançados do mundo estão fazendo agora.</p>
+      </div>
+      <div className="glass-card p-8 rounded-xl hover-lift">
+        <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
+          <Zap className="w-8 h-8 text-black" />
+        </div>
+        <h3 className="text-xl font-bold mb-4">Agentes & Automações</h3>
+        <p className="text-gray-300">Construa GPTs customizados, crie robôs digitais, escale seu negócio.</p>
+      </div>
+      <div className="glass-card p-8 rounded-xl hover-lift">
+        <div className="w-16 h-16 gradient-cta rounded-lg flex items-center justify-center mb-6">
+          <Shield className="w-8 h-8 text-black" />
+        </div>
+        <h3 className="text-xl font-bold mb-4">Integrações</h3>
+        <p className="text-gray-300">Da web ao seu computador – conecte tudo, automatize tudo.</p>
+      </div>
+    </div>
+  </div>
+</AnimatedSection>
 
       {/* Módulos do Curso */}
-      <AnimatedSection className="py-20 gradient-section">
+      <AnimatedSection id="modulos" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
             Módulos do <span className="text-cyan-400">Curso</span>
@@ -389,7 +659,7 @@ function App() {
       </AnimatedSection>
 
       {/* CTA Principal */}
-      <AnimatedSection className="py-20">
+      <AnimatedSection id="precos" className="py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Pronto para <span className="text-cyan-400">Dominar a IA</span>?

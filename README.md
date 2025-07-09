@@ -93,3 +93,17 @@ Para dúvidas ou alterações, entre em contato com o desenvolvedor.
 
 **Desenvolvido com ❤️ para Lion Labs**
 
+---
+
+## ↩️ Plano de Rollback (Animação do Robô)
+
+Caso a implementação da animação do robô em `src/App.jsx` cause problemas, siga estes passos para reverter as alterações:
+
+1.  **Restaurar `src/App.jsx`:** Substitua o conteúdo atual de `src/App.jsx` pelo backup original do arquivo.
+2.  **Remover Imports (se adicionados):** Verifique se algum import relacionado à animação do robô (ex: novos ícones ou componentes) foi adicionado no topo de `src/App.jsx` e remova-o.
+
+## Changelog
+
+### 09/07/2025
+- **Modified**: Changed the main title from "Pare de Só Consumir IA." to "Aprendam a criar sistemas automatizado.".
+- **Reverted**: Removed the gear icon from the "Módulos" menu item in the header.
